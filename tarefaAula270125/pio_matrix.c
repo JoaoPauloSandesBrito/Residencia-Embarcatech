@@ -106,7 +106,6 @@ void exibir_numero(PIO pio, uint sm)
     if (current_time - last_time_matrix >= interval_matrix)
     {
         desenho_pio(frames_numeros[contador], 0, pio, sm);
-        // sleep_ms(1500); // Delay de 1 segundo entre cada letra
         last_time_matrix = current_time;
     }
 }
@@ -115,7 +114,7 @@ void blink_led()
 {
     uint32_t current_time = to_ms_since_boot(get_absolute_time());
 
-    // Verifica se o intervalo passou (500 ms)
+    // Verifica se o intervalo passou
     if (current_time - last_time_led >= interval_led)
     {
         led_state = !led_state;
