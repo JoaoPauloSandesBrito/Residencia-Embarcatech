@@ -17,7 +17,6 @@ uint32_t interval = 1000; // Intervalo de 1 segundo para a saída no terminal
 // Callback do temporizador que alterna os LEDs
 bool repeating_timer_callback(struct repeating_timer *t)
 {
-
     if (red_status)
     {
         red_status = !red_status;

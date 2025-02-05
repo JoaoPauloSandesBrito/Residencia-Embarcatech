@@ -1,14 +1,38 @@
-Os requisitos para a realização desta atividade são:
+Controle de LEDs com Pushbutton e Temporizador
 
-1) Caso o usuário clique no botão (pushbutton), os três LEDs serão ligados (todos em nível alto). A partir da primeira rotina de atraso, ocorrerá uma mudança de estado para dois LEDs ligados e, em seguida, apenas um. Obs.: veja o vídeo associado a esta prática no link presente na Figura 3.
+Descrição:  Este programa para Raspberry Pi Pico implementa um controle de LEDs utilizando um pushbutton. Quando o usuário pressiona o botão, os três LEDs são ligados simultaneamente. Em seguida, um temporizador inicia a sequência de desligamento dos LEDs, apagando um de cada vez a cada 3 segundos.
 
-2) O temporizador do alarme deve ser ajustado para um atraso de 3 segundos (3.000ms), entre os estados de acionamento dos LEDs.
+Requisitos:
+- Ao pressionar o botão, os três LEDs devem acender simultaneamente.
+- O temporizador do alarme deve ser configurado com um atraso de 3 segundos (3.000 ms) para a transição entre os estados dos LEDs.
+- A lógica de desligamento deve ser implementada em funções de callback do temporizador, seguindo a abordagem trabalhada em aula.
+- O botão só pode ser acionado novamente após o desligamento completo de todos os LEDs, evitando interferências durante a temporização.
+- O programa deve ser testado na Ferramenta Educacional BitDogLab com um LED RGB utilizando os GPIOs 11, 12 e 13.
 
-3) A mudança de estado dos LEDs deve ser implementa em funções de call-back do temporizador, a exemplo da rotina trabalhada na aula síncrona - turn_off_callback().
+Componentes Necessários:
+- Raspberry Pi Pico
+- 3 LEDs (vermelho, azul e verde)
+- 3 resistores adequados para LEDs
+- Pushbutton
+- Resistência pull-up para o botão (caso necessário)
+- Jumpers e protoboard
 
-4) O botão só pode alterar o estado dos LEDs quando o último LED for desligado. Deste modo, durante a execução das rotinas de temporização, o botão não pode iniciar uma nova chamada da função call-back.
+Conexões:
+LED Vermelho - GPIO 13
+LED Azul - GPIO 12
+LED Verde - GPIO 11
+Pushbutton - GPIO 5
 
-5) Com o emprego da Ferramenta Educacional BitDogLab, faça um experimento com o código deste exercício utilizando o LED
-RGB – GPIOs 11, 12 e 13 e o Botão A, GPIO 05.
+Como Executar o Programa:
+- Compile e envie o código para a Raspberry Pi Pico.
+- Conecte os componentes conforme a tabela acima.
+- Pressione o botão para iniciar a sequência de iluminação e desligamento dos LEDs.
+- Observe o comportamento dos LEDs e verifique se a sequência ocorre conforme esperado.
 
-6) Opcional: Implementar uma rotina em software para atenuação do efeito bouncing no botão (software debounce).
+Funcionamento:
+- Quando o botão é pressionado, todos os LEDs são acesos ao mesmo tempo.
+- Após 3 segundos, o LED vermelho é desligado.
+- Após mais 3 segundos, o LED azul é desligado.
+- Após mais 3 segundos, o LED verde é desligado e o botão pode ser pressionado novamente.
+
+Observação: Durante o processo de temporização, o botão não pode iniciar um novo ciclo até que todos os LEDs estejam apagados, garantindo que a sequência ocorra corretamente.
