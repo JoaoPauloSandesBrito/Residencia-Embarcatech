@@ -1,11 +1,43 @@
-Os requisitos para a realização desta atividade são:
+Controle de Semáforo com Raspberry Pi Pico
 
-1) O acionamento dos LEDs (sinais do semáforo) deve iniciar na cor vermelha, conforme orientação presente na Figura 1, alterando para amarela e, em seguida, verde.
+Descrição:
 
-2) O temporizador deve ser ajustado para um atraso de 3 segundos (3.000ms).
+Este programa implementa o controle de um semáforo utilizando um Raspberry Pi Pico e LEDs conectados aos GPIOs 11 (verde), 12 (amarelo) e 13 (vermelho). O funcionamento do semáforo segue a sequência padrão: vermelho -> amarelo -> verde, com cada estado durando 3 segundos.
 
-3) A mudança de estado dos LEDs deve ser implementa na função de call-back do temporizador, a exemplo da rotina trabalhada na aula síncrona - repeating_timer_callback().
+Requisitos:
 
-4) A rotina principal, presente no interior da estrutura de repetição while, deve imprimir algum tipo de informação a cada segundo (1.000 ms) - a mensagem enviada pela porta serial fica a critério do discente.
+-Placa Raspberry Pi Pico
 
-5) Com o emprego da Ferramenta Educacional BitDogLab, faça um experimento com o código deste exercício utilizando o LED RGB – GPIOs 11, 12 e 13.
+-LEDs conectados aos GPIOs 11, 12 e 13
+
+-Ferramenta BitDogLab para simulação
+
+-Biblioteca pico/stdlib.h para manipulação de GPIOs
+
+-Biblioteca pico/time.h para gerenciamento de temporização
+
+Funcionamento:
+
+-O programa inicia com o LED vermelho aceso.
+
+-A cada 3 segundos, a cor muda para a seguinte na sequência (vermelho -> amarelo -> verde -> vermelho).
+
+-A mudança de estado dos LEDs é gerenciada dentro da função repeating_timer_callback().
+
+-A cada 1 segundo, uma mensagem é impressa no terminal via comunicação serial.
+
+Configuração e Execução:
+
+-Conecte os LEDs aos GPIOs conforme indicado:
+
+    -Vermelho: GPIO 13
+
+    -Amarelo: GPIO 12
+
+    -Verde: GPIO 11
+
+-Compile e carregue o código no Raspberry Pi Pico.
+
+-Utilize um monitor serial (como o minicom ou PuTTY) para visualizar as mensagens impressas.
+
+-Se desejar, utilize a ferramenta BitDogLab para simular o funcionamento do semáforo com um LED RGB.
