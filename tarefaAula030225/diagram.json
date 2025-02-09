@@ -50,7 +50,7 @@
       "id": "btn1",
       "top": 15.8,
       "left": 201.6,
-      "attrs": { "color": "green" }
+      "attrs": { "color": "blue" }
     },
 
     {
@@ -58,7 +58,7 @@
       "id": "btn2",
       "top": 100,
       "left": 201.6,
-      "attrs": { "color": "blue" }
+      "attrs": { "color": "green" }
     },
     { "type": "wokwi-led", "id": "led1", "top": 203.6, "left": -63.4, "attrs": { "color": "red" } },
     {
@@ -95,7 +95,16 @@
       "top": 328.75,
       "left": -28.8,
       "attrs": { "value": "1000" }
-    }
+    },
+ {
+        "type": "board-ssd1306",
+        "id": "oled1",
+        "top": 204.74,
+        "left": -414.97,
+        "attrs": { "i2cAddress": "0x3c" }
+      },
+      { "type": "wokwi-vcc", "id": "vccP", "top": 163.96, "left": -115.2, "attrs": {} }
+
   ],
   "connections": [
     [ "pico:GP0", "$serialMonitor:RX", "", [] ],
@@ -200,7 +209,14 @@
     [ "led2:A", "r2:1", "green", [ "v0" ] ],
     [ "led3:A", "r3:1", "blue", [ "v0" ] ],
     [ "r3:2", "pico:GP12", "blue", [ "v0" ] ],
-    [ "r2:2", "pico:GP11", "green", [ "v0" ] ]
+    [ "r2:2", "pico:GP11", "green", [ "v0" ] ],
+[ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GP15", "oled1:SCL", "green", [ "h0" ] ],
+      [ "pico:GP14", "oled1:SDA", "blue", [ "h0" ] ],
+      [ "pico:GND.4", "oled1:GND", "black", [ "h0" ] ],
+      [ "vccP:VCC", "oled1:VCC", "red", [ "v9.6", "h38.4" ] ]
+
   ],
   "dependencies": {}
 }
