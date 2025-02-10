@@ -14,7 +14,7 @@ bool green_status = false;
 bool button_status = true;
 
 // Declaração antecipada da função de callback
-bool toggle_led_callback(alarm_id_t id, void *user_data);
+int64_t toggle_led_callback(alarm_id_t id, void *user_data);
 
 // Rotina de interrupção acionada pelo botão
 static void gpio_irq_handler(uint gpio, uint32_t events)
@@ -62,7 +62,7 @@ int main()
 }
 
 // Callback para desligar os LEDs um de cada vez em intervalos de 1 segundo
-bool toggle_led_callback(alarm_id_t id, void *user_data)
+int64_t toggle_led_callback(alarm_id_t id, void *user_data)
 {
     if (red_status) // Se o LED vermelho estiver ligado, desliga ele primeiro
     {
@@ -83,5 +83,5 @@ bool toggle_led_callback(alarm_id_t id, void *user_data)
         button_status = true; // Permite que o botão seja pressionado novamente
     }
 
-    return false; // Retorna false para indicar que o alarme não deve ser repetido automaticamente
+    return 0; // Retorna 0 para indicar que o alarme não deve ser repetido automaticamente
 }
