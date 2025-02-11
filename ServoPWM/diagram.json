@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "author": "Joao Paulo Sandes Brito",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -22.35,
+      "left": -44.4,
+      "attrs": { "env": "arduino-community" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -40.4, "left": 86.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "$serialMonitor:RX", "pico:GP0", "", [] ],
+    [ "pico:GND.8", "servo1:GND", "black", [ "h0" ] ],
+    [ "pico:GP22", "servo1:PWM", "orange", [ "h0" ] ],
+    [ "pico:3V3_EN", "servo1:V+", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
