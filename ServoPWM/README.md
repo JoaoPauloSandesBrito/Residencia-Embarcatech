@@ -50,3 +50,5 @@ Sinta-se à vontade para contribuir para este projeto. Você pode fazer um fork,
 **Observacoes**
 
 Ao realizar o experimento com o código deste exercício utilizando o LED RGB na GPIO 12, o discente observou que, ao variar o ciclo de trabalho (duty cycle), era possível ajustar o brilho do LED. No entanto, devido aos valores muito pequenos do ciclo de trabalho utilizados para o controle do servo motor, o LED pode não ter apresentado uma variação visível no brilho, aparecendo mais apagado ou com um brilho muito fraco. Isso ocorre porque os ciclos de trabalho utilizados no código são ajustados para a precisão necessária para o controle do servo, mas não são suficientes para provocar uma alteração perceptível no brilho do LED RGB.
+
+**LINK VIDEO EXPLICACAO:** https://drive.google.com/file/d/13o2rVj9QMpP2fJvFVpBpPWDxeAHIyKf2/view?usp=drive_link
